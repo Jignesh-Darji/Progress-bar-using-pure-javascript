@@ -1,0 +1,63 @@
+<html>
+<head>
+<script type="text/javascript">
+function move() {
+    var elem = document.getElementById("myBar"); 
+	 var per_txt = document.getElementById("per_txt"); 
+    var width = 1;
+    var id = setInterval(frame, 10);
+    function frame() {
+        if (width >= 100) {
+            clearInterval(id);
+        } else {
+            width=width+0.083; 
+            elem.style.width = width + '%'; 
+			per_txt.innerHTML= parseInt(width) + '%'; 
+        }
+    }
+}
+
+</script>
+<style>
+#myProgress {
+    width: 100%;
+    background-color: #eee;
+	height:2px;
+	vertical-align:center;
+}
+#myBar {
+    width: 1%;
+    height: 2px;
+    background-color: #009C2D;
+}
+#per_txt
+{
+	text-align:center;
+}
+div.container4 {
+    height: 100%;
+    position: relative;
+	background-color:rgba(0,0,0,0.2);
+	margin:0px}
+div.container4 #popdiv {
+    margin: 0;
+    background: yellow;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) }
+</style>
+</head>
+<body>
+<div class="container4">
+<div style="width:400px" id="popdiv">
+<div id="myProgress">
+  <div id="myBar"></div>
+  <div id="per_txt"></div>
+</div>
+</div>
+</div>
+<button id="btn" onclick="move();">Run</button>
+</body>
+</html>
